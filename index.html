@@ -6,6 +6,7 @@
 <title>Somos Perú Trujillo</title>
 
 <style>
+
 body{
     margin:0;
     background:#083a9b;
@@ -18,10 +19,10 @@ body{
 
 .container{
     width:380px;
-    background:#fff;
+    background:white;
     border-radius:12px;
     overflow:hidden;
-    box-shadow:0 0 20px rgba(0,0,0,.25);
+    box-shadow:0 0 20px rgba(0,0,0,.2);
 }
 
 .logo{
@@ -39,7 +40,7 @@ body{
     text-align:center;
     color:#153d8f;
     font-weight:bold;
-    font-size:18px;
+    font-size:20px;
     padding:20px;
 }
 
@@ -49,17 +50,17 @@ body{
 
 .form label{
     display:block;
+    margin-top:10px;
+    margin-bottom:5px;
     font-size:12px;
     font-weight:bold;
     color:#555;
-    margin-bottom:5px;
-    margin-top:12px;
 }
 
 .form input{
     width:100%;
-    box-sizing:border-box;
     padding:14px;
+    box-sizing:border-box;
     border:1px solid #d8d8d8;
     border-radius:6px;
     background:#f7f7f7;
@@ -69,12 +70,12 @@ body{
     width:100%;
     margin-top:20px;
     padding:15px;
-    background:#f01845;
     border:none;
     border-radius:8px;
+    background:#f01845;
     color:white;
-    font-weight:bold;
     font-size:15px;
+    font-weight:bold;
     cursor:pointer;
 }
 
@@ -82,12 +83,13 @@ body{
     background:#083a9b;
     color:white;
     text-align:center;
-    font-size:11px;
     padding:12px;
+    font-size:11px;
 }
-</style>
 
+</style>
 </head>
+
 <body>
 
 <div class="container">
@@ -103,16 +105,16 @@ body{
     <div class="form">
 
         <label>NOMBRE COMPLETO</label>
-        <input id="nombre" type="text" placeholder="Ej: Juan Pérez García">
+        <input id="nombre" type="text">
 
         <label>NÚMERO DE CONTACTO</label>
-        <input id="contacto" type="text" placeholder="Ej: 987654321">
+        <input id="contacto" type="text">
 
         <label>ZONA</label>
-        <input id="zona" type="text" placeholder="Escriba la zona">
+        <input id="zona" type="text">
 
         <label>COMUNA</label>
-        <input id="comuna" type="text" placeholder="Escriba la comuna">
+        <input id="comuna" type="text">
 
         <button class="btn" onclick="enviar()">
             REGISTRARME
@@ -128,33 +130,38 @@ body{
 
 <script>
 
-async function enviar() {
+function enviar() {
 
-    const datos = {
-        nombre: document.getElementById("nombre").value,
-        contacto: document.getElementById("contacto").value,
-        zona: document.getElementById("zona").value,
-        comuna: document.getElementById("comuna").value
-    };
+    let formData = new FormData();
 
-    if (!datos.nombre || !datos.contacto || !datos.zona || !datos.comuna) {
-        alert("Complete todos los campos");
-        return;
-    }
+    formData.append(
+        "nombre",
+        document.getElementById("nombre").value
+    );
 
-    try {
+    formData.append(
+        "contacto",
+        document.getElementById("contacto").value
+    );
 
-        await fetch(
-            "https://script.google.com/macros/s/AKfycbw3cu2uLnYNtgOu-czi6IpW5CekoUUfLlvAhtUj_whIXF1hMRX-CXKjgoJSC1NrOHybTQ/exec",
-            {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(datos)
-            }
-        );
+    formData.append(
+        "zona",
+        document.getElementById("zona").value
+    );
+
+    formData.append(
+        "comuna",
+        document.getElementById("comuna").value
+    );
+
+    fetch(
+        "https://script.google.com/macros/s/AKfycbw3cu2uLnYNtgOu-czi6IpW5CekoUUfLlvAhtUj_whIXF1hMRX-CXKjgoJSC1NrOHybTQ/exec",
+        {
+            method: "POST",
+            body: formData
+        }
+    )
+    .then(() => {
 
         alert("✅ Registro guardado");
 
@@ -163,12 +170,13 @@ async function enviar() {
         document.getElementById("zona").value = "";
         document.getElementById("comuna").value = "";
 
-    } catch (e) {
+    })
+    .catch(error => {
 
-        console.error(e);
+        console.error(error);
         alert("❌ Error al guardar");
 
-    }
+    });
 
 }
 
