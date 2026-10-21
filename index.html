@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registro de Campaña</title>
+<title>Somos Perú Trujillo</title>
 
 <style>
-
 body{
     margin:0;
     background:#083a9b;
@@ -19,7 +18,7 @@ body{
 
 .container{
     width:380px;
-    background:#ffffff;
+    background:#fff;
     border-radius:12px;
     overflow:hidden;
     box-shadow:0 0 20px rgba(0,0,0,.25);
@@ -42,7 +41,6 @@ body{
     font-weight:bold;
     font-size:18px;
     padding:20px;
-    letter-spacing:1px;
 }
 
 .form{
@@ -65,12 +63,6 @@ body{
     border:1px solid #d8d8d8;
     border-radius:6px;
     background:#f7f7f7;
-    font-size:14px;
-}
-
-.form input:focus{
-    outline:none;
-    border-color:#083a9b;
 }
 
 .btn{
@@ -86,10 +78,6 @@ body{
     cursor:pointer;
 }
 
-.btn:hover{
-    background:#d9143d;
-}
-
 .footer{
     background:#083a9b;
     color:white;
@@ -97,10 +85,9 @@ body{
     font-size:11px;
     padding:12px;
 }
-
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="container">
@@ -125,7 +112,7 @@ body{
         <input id="zona" type="text" placeholder="Escriba la zona">
 
         <label>COMUNA</label>
-        <input id="comuna" type="text" placeholder="Ej: Urbanización Las Flores">
+        <input id="comuna" type="text" placeholder="Escriba la comuna">
 
         <button class="btn" onclick="enviar()">
             REGISTRARME
@@ -150,22 +137,18 @@ async function enviar() {
         comuna: document.getElementById("comuna").value
     };
 
-    if(
-        !datos.nombre ||
-        !datos.contacto ||
-        !datos.zona ||
-        !datos.comuna
-    ){
+    if (!datos.nombre || !datos.contacto || !datos.zona || !datos.comuna) {
         alert("Complete todos los campos");
         return;
     }
 
     try {
 
-        const respuesta = await fetch(
+        await fetch(
             "https://script.google.com/macros/s/AKfycbw3cu2uLnYNtgOu-czi6IpW5CekoUUfLlvAhtUj_whIXF1hMRX-CXKjgoJSC1NrOHybTQ/exec",
             {
                 method: "POST",
+                mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -173,25 +156,17 @@ async function enviar() {
             }
         );
 
-        if(respuesta.ok){
+        alert("✅ Registro guardado");
 
-            alert("✅ Registro guardado correctamente");
+        document.getElementById("nombre").value = "";
+        document.getElementById("contacto").value = "";
+        document.getElementById("zona").value = "";
+        document.getElementById("comuna").value = "";
 
-            document.getElementById("nombre").value = "";
-            document.getElementById("contacto").value = "";
-            document.getElementById("zona").value = "";
-            document.getElementById("comuna").value = "";
+    } catch (e) {
 
-        } else {
-
-            alert("❌ Error al registrar");
-
-        }
-
-    } catch(error) {
-
-        console.error(error);
-        alert("❌ Error de conexión");
+        console.error(e);
+        alert("❌ Error al guardar");
 
     }
 
