@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Registro de Campaña</title>
 
 <style>
@@ -90,12 +89,12 @@ body{
 
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
     <div class="logo">
-        <!-- CAMBIA logo.png POR TU LOGO -->
         <img src="logo.png" alt="Logo">
     </div>
 
@@ -106,18 +105,18 @@ body{
     <div class="form">
 
         <label>NOMBRE COMPLETO</label>
-        <input type="text" placeholder="Ej: Juan Pérez García">
+        <input id="nombre" type="text" placeholder="Ej: Juan Pérez García">
 
         <label>NÚMERO DE CONTACTO</label>
-        <input type="text" placeholder="Ej: 987 654 321">
+        <input id="contacto" type="text" placeholder="Ej: 987654321">
 
         <label>ZONA</label>
-        <input type="text" placeholder="Escriba la zona">
+        <input id="zona" type="text" placeholder="Escriba la zona">
 
         <label>COMUNA</label>
-        <input type="text" placeholder="Ej: Urbanización Las Flores">
+        <input id="comuna" type="text" placeholder="Ej: Urbanización Las Flores">
 
-        <button class="btn">
+        <button class="btn" onclick="enviar()">
             REGISTRARME
         </button>
 
@@ -129,5 +128,28 @@ body{
 
 </div>
 
+<script>
+
+function enviar() {
+
+    const datos = {
+        nombre: document.getElementById("nombre").value,
+        contacto: document.getElementById("contacto").value,
+        zona: document.getElementById("zona").value,
+        comuna: document.getElementById("comuna").value
+    };
+
+    console.log(datos);
+
+    // AQUÍ IRÁ EL FETCH HACIA GOOGLE SHEETS
+
+    alert("Registro enviado");
+
+}
+
+</script>
+
 </body>
 </html>
+
+
