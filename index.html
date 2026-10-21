@@ -3,79 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somos Perú Trujillo</title>
+<title>Registro de Campaña</title>
 
 <style>
+
 body{
-    background:#002b8f;
     margin:0;
-    font-family:Arial,sans-serif;
+    background:#062b8f;
+    font-family:Arial, sans-serif;
 }
 
-.container{
-    max-width:400px;
+.contenedor{
+    max-width:380px;
     margin:20px auto;
     background:#fff;
-    padding:20px;
-    border-radius:10px;
+    border-radius:12px;
+    overflow:hidden;
 }
 
-h2{
-    color:#002b8f;
+.logo{
     text-align:center;
+    padding:20px;
+    border-bottom:4px solid #e41c3d;
+}
+
+.logo img{
+    max-width:220px;
+}
+
+.titulo{
+    text-align:center;
+    color:#133b8f;
+    font-weight:bold;
+    padding:20px 0;
+}
+
+.formulario{
+    padding:20px;
+}
+
+label{
+    font-size:12px;
+    font-weight:bold;
+    color:#555;
+    display:block;
+    margin-bottom:5px;
 }
 
 input, select{
     width:100%;
-    padding:12px;
-    margin-bottom:12px;
-    border:1px solid #ccc;
+    padding:14px;
+    border:1px solid #dcdcdc;
     border-radius:6px;
+    margin-bottom:15px;
     box-sizing:border-box;
 }
 
 button{
     width:100%;
-    padding:15px;
-    background:#e91e63;
-    color:#fff;
+    background:#ef2048;
+    color:white;
     border:none;
-    border-radius:6px;
+    padding:16px;
+    border-radius:8px;
     font-weight:bold;
+    font-size:15px;
     cursor:pointer;
 }
+
+.footer{
+    background:#0a348f;
+    color:white;
+    text-align:center;
+    font-size:11px;
+    padding:10px;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="contenedor">
 
-<h2>REGISTRO DE CAMPAÑA</h2>
+<div class="logo">
+    <img src="https://via.placeholder.com/220x70?text=LOGO" alt="Logo">
+</div>
 
-<form>
+<div class="titulo">
+    REGISTRO DE CAMPAÑA
+</div>
 
-<input type="text" placeholder="Nombre completo" required>
+<div class="formulario">
 
-<input type="tel" placeholder="Número de contacto" required>
+<label>GUÍA</label>
+<input type="text" placeholder="Ej: G001">
 
-<select required>
-<option value="">Selecciona una zona</option>
-<option>Centro</option>
-<option>Norte</option>
-<option>Sur</option>
-<option>Trujillo</option>
+<label>NOMBRE COMPLETO</label>
+<input type="text" placeholder="Ej: Juan Pérez García">
+
+<label>DNI</label>
+<input type="text" placeholder="Ej: 12345678">
+
+<label>CELULAR</label>
+<input type="text" placeholder="Ej: 987654321">
+
+<label>ZONA</label>
+<select>
+    <option>Selecciona una zona</option>
 </select>
 
-<input type="text" placeholder="Comuna o Sector">
+<label>COMUNA</label>
+<input type="text" placeholder="Ej: Urbanización Las Flores">
 
-<button type="submit">
+<button>
 REGISTRARME
 </button>
 
-</form>
+</div>
+
+<div class="footer">
+Campaña Somos Perú Trujillo
+</div>
 
 </div>
 
 </body>
 </html>
+</div>
+
