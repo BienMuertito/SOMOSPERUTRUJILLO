@@ -1,20 +1,133 @@
-<label>NOMBRE COMPLETO</label>
-<input type="text" placeholder="Ej: Juan Pérez García">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<label>NÚMERO DE CONTACTO</label>
-<input type="text" placeholder="Ej: 987 654 321">
+<title>Registro de Campaña</title>
 
-<label>ZONA</label>
-<input type="text" placeholder="Selecciona una zona">
+<style>
 
-<label>COMUNA</label>
-<input type="text" placeholder="Ej: Urbanización Las Flores">
+body{
+    margin:0;
+    background:#083a9b;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
 
-<button type="submit">
-REGISTRARME
-</button>
+.container{
+    width:380px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+.logo{
+    text-align:center;
+    padding:20px;
+    border-bottom:4px solid #e31d3b;
+}
+
+.logo img{
+    max-width:220px;
+    max-height:80px;
+}
+
+.titulo{
+    text-align:center;
+    color:#153d8f;
+    font-weight:bold;
+    font-size:18px;
+    padding:20px;
+}
+
+.form{
+    padding:20px;
+}
+
+.form label{
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    color:#555;
+    margin-bottom:5px;
+    margin-top:10px;
+}
+
+.form input{
+    width:100%;
+    box-sizing:border-box;
+    padding:14px;
+    border:1px solid #d8d8d8;
+    border-radius:6px;
+    background:#f7f7f7;
+}
+
+.btn{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    background:#f01845;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.footer{
+    background:#083a9b;
+    color:white;
+    text-align:center;
+    font-size:11px;
+    padding:10px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <!-- CAMBIA logo.png POR TU LOGO -->
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="titulo">
+        REGISTRO DE CAMPAÑA
+    </div>
+
+    <div class="form">
+
+        <label>NOMBRE COMPLETO</label>
+        <input type="text" placeholder="Ej: Juan Pérez García">
+
+        <label>NÚMERO DE CONTACTO</label>
+        <input type="text" placeholder="Ej: 987 654 321">
+
+        <label>ZONA</label>
+        <input type="text" placeholder="Escriba la zona">
+
+        <label>COMUNA</label>
+        <input type="text" placeholder="Ej: Urbanización Las Flores">
+
+        <button class="btn">
+            REGISTRARME
+        </button>
+
+    </div>
+
+    <div class="footer">
+        Campaña Somos Perú Trujillo
+    </div>
+
+</div>
 
 </body>
 </html>
-</div>
-
